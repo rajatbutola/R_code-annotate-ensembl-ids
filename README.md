@@ -9,13 +9,6 @@ This repository provides an R script that demonstrates multiple ways to map **En
 
 The script is designed for researchers working with gene expression data who need to convert Ensembl IDs to human-readable gene symbols.
 
-## 📁 Project Structure
-.
-├── Ens.txt # Input file: List of Ensembl gene IDs (one per line, no header)
-├── annotate_genes.R # Main R script with all four annotation methods
-└── README.md # Project documentation (this file)
-
-
 ## Requirements
 
 - R 4.3 or later
