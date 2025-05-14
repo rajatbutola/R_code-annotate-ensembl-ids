@@ -41,13 +41,17 @@ getBM(
   mart = ensembl.con                                        # BioMart connection
 )
 
+# -------------------------
+# Method 2: Using annotables::grch38
+# -------------------------
+
 # Filter the grch38 annotation table for your list of Ensembl IDs
 # Returns gene symbol, description, etc.
 grch38 %>% 
   filter(ensgene %in% ensembl.ids$V1)
 
 # -------------------------
-# Method 2: Using org.Hs.eg.db
+# Method 3: Using org.Hs.eg.db
 # -------------------------
 
 # List the key types you can use to query (e.g., ENSEMBL, SYMBOL, ENTREZID)
@@ -65,7 +69,7 @@ mapIds(
 )
 
 # -------------------------
-# Method 3: Using EnsDb.Hsapiens.v86
+# Method 4: Using EnsDb.Hsapiens.v86
 # -------------------------
 
 # List valid key types (e.g., GENEID, TXID, ENSEMBLTRANS) for querying
