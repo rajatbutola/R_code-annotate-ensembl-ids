@@ -13,7 +13,7 @@ The script is designed for researchers working with gene expression data who nee
 
 - R 4.3 or later
 
-
+---
 ### Required R Packages
 
 ```r
@@ -27,43 +27,35 @@ remotes::install_github("stephenturner/annotables")
 BiocManager::install("biomaRt")
 BiocManager::install("org.Hs.eg.db")
 BiocManager::install("EnsDb.Hsapiens.v86")
+```
+
+### How to Use
+- Place your list of Ensembl gene IDs in a text file named Ens.txt (one ID per line).
+- Set your working directory in the script to the folder containing Ens.txt.
+- Run the script annotate_genes.R to perform gene annotation using four different methods.
+- Review the mappings between Ensembl IDs and gene symbols from each method.
 
 
-How to Use
-Place your list of Ensembl gene IDs in a text file named Ens.txt (one ID per line).
+## Annotation Methods Used
+### Method 1: biomaRt
+- Connects to Ensembl's online BioMart to retrieve gene annotations.
+- Flexible and up-to-date, but requires internet access.
 
-Set your working directory in the script to the folder containing Ens.txt.
+### Method 2: annotables::grch38
+- Uses a locally stored table of gene annotations for GRCh38.
+- Fast and simple for smaller workflows.
 
-Run the script annotate_genes.R to perform gene annotation using four different methods.
+### Method 3: org.Hs.eg.db
+- Uses Bioconductor’s curated human gene database.
+- Ideal for consistent annotations in Bioconductor-based workflows.
 
-Review the mappings between Ensembl IDs and gene symbols from each method.
+### Method 4: EnsDb.Hsapiens.v86
+- Offline, version-specific annotation database from Ensembl.
+- Ensures reproducibility across time.
 
-
-Annotation Methods Used
-Method 1: biomaRt
-Connects to Ensembl's online BioMart to retrieve gene annotations.
-
-Flexible and up-to-date, but requires internet access.
-
-Method 2: annotables::grch38
-Uses a locally stored table of gene annotations for GRCh38.
-
-Fast and simple for smaller workflows.
-
-Method 3: org.Hs.eg.db
-Uses Bioconductor’s curated human gene database.
-
-Ideal for consistent annotations in Bioconductor-based workflows.
-
-Method 4: EnsDb.Hsapiens.v86
-Offline, version-specific annotation database from Ensembl.
-
-Ensures reproducibility across time.
-
-Notes
-Input file must be a plain text file with one Ensembl gene ID per line (no header).
-
-You can easily switch or combine annotation sources depending on your use case.
+### Notes
+- Input file must be a plain text file with one Ensembl gene ID per line (no header).
+- You can easily switch or combine annotation sources depending on your use case.
 ---
 
 Let me know if you’d like me to create a `LICENSE` file or help structure this as a proper R package or GitHub repository!
